@@ -1,3 +1,4 @@
+$white: #FFFFFF;
 $cream: #F3EDE7;
 $cream_white: #FAF8F6;
 $grey: #49566D;
@@ -7,3 +8,57 @@ $pink: #CB30E3;
 $orange: #FFA84E;
 
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700&display=swap');
+
+@mixin button-bg($bg) {
+    background: $bg;
+}
+
+.btn {
+    border: 1px solid $dark_blue;
+    color: $dark_blue;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: -0.16px;
+    border-radius: 6px;
+    width: 219px;
+    height: 56px;
+}
+
+.btn_primary {
+    @include button-bg($cream_white);
+
+    &:hover {
+        cursor: pointer;
+        background-color: $dark_blue;
+        color: $white;
+    }
+}
+
+.btn_secondary {
+    @include button-bg($dark_blue);
+    color: $cream_white;
+
+    &:hover {
+        cursor: pointer;
+        border: none;
+        background: linear-gradient(135deg, $violet 0%, $pink 49.21%, $orange 100%);
+
+    }
+}
+
+/////////////////////// MOBILE /////////////////////////////
+
+@media screen and (max-width: 767px) {
+    @mixin button-bg($bg) {
+        background: $bg;
+    }
+
+    .btn {
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: -0.14px;
+        width: 182px;
+        height: 48px;
+    }
+}
